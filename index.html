@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Teclas Pressionadas</title>
+    <title>VHS</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap">
+    <link rel="icon" href="favicon2.svg" type="image/x-icon">
 </head>
 <body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="vhslogo3.png" alt="Logo">
+        </div>
+        <h1 class="titulo-site"><mark style="background-color:#1A7419; color:white;">V</mark>isual <mark style="background-color:#CD5317; color:white;">H</mark>earing <mark style="background-color:#6716CF; color:white;">S</mark>oftware</h1>
+    </div>
     <div id="container">
     <div id="teclas-pressionadas-container">
         <div id="teclas-pressionadas">
@@ -14,7 +21,46 @@
             <div id="acorde"></div>
         </div>
     </div>
-    <div class="quadrados-container">
+    <div class="note-space">
+    <div class="quadrados-container-1">
+        <div class="quadrado C">
+            <div class="nota">C</div>
+        </div>
+        <div class="quadrado Csus">
+            <div class="nota">C#</div>
+        </div>
+        <div class="quadrado D">
+            <div class="nota">D</div>
+        </div>
+        <div class="quadrado Dsus">
+            <div class="nota">D#</div>
+        </div>
+        <div class="quadrado E">
+            <div class="nota">E</div>
+        </div>
+        <div class="quadrado F">
+            <div class="nota">F</div>
+        </div>
+        <div class="quadrado Fsus">
+            <div class="nota">F#</div>
+        </div>
+        <div class="quadrado G">
+            <div class="nota">G</div>
+        </div>
+        <div class="quadrado Gsus">
+            <div class="nota">G#</div>
+        </div>
+        <div class="quadrado A">
+            <div class="nota">A</div>
+        </div>
+        <div class="quadrado Asus">
+            <div class="nota">A#</div>
+        </div>
+        <div class="quadrado B">
+            <div class="nota">B</div>
+        </div>
+    </div>
+    <div class="quadrados-container-2">
         <div class="quadrado C">
             <div class="nota">C</div>
         </div>
@@ -53,12 +99,14 @@
         </div>
     </div>
 </div>
+</div>
     <script>
         // Objeto para rastrear o estado das teclas
         const teclasPressionadas = {};
 
         // Mapeamento de teclas para notas correspondentes
         const notasCorrespondentes = {
+            '':'',
             'a': 'C',
             'w': 'Csus',
             's': 'D',
@@ -106,12 +154,14 @@
     'A#': ['Asus', 'D', 'F'],
     'A#m': ['Asus', 'Csus', 'F'],
     'B': ['B', 'Dsus', 'Fsus'],
-    'Bm': ['B', 'D', 'Fsus']
+    'Bm': ['B', 'D', 'Fsus'],
+    '': ['']
 };
 
 
         // Mapeamento de notas MIDI para notas correspondentes
         const notasMIDI = {
+            0 : '',
             48: 'C',
             49: 'Csus',
             50: 'D',
@@ -136,7 +186,43 @@
             69: 'A',
             70: 'Asus',
             71: 'B',
-            72: 'C'
+            72: 'C',
+            73: 'Csus',
+            74: 'D',
+            75: 'Dsus',
+            76: 'E',
+            77: 'F',
+            78: 'Fsus',
+            79: 'G',
+            80: 'Gsus',
+            81: 'A',
+            82: 'Asus',
+            83: 'B',
+            84: 'C',
+            85: 'Csus',
+            86: 'D',
+            87: 'Dsus',
+            88: 'E',
+            89: 'F',
+            90: 'Fsus',
+            91: 'G',
+            92: 'Gsus',
+            93: 'A',
+            94: 'Asus',
+            95: 'B',
+            96: 'C',
+            97: 'Csus',
+            98: 'D',
+            99: 'Dsus',
+            100: 'E',
+            101: 'F',
+            102: 'Fsus',
+            103: 'G',
+            104: 'Gsus',
+            105: 'A',
+            106: 'Asus',
+            107: 'B',
+            108: 'C'
             // Adicione mais notas MIDI conforme necessário
         };
 
@@ -166,7 +252,8 @@
             'A#': '#B329D5',
             'A#m': '#8B73D0',
             'B': '#8D37FA',
-            'Bm': '#4E5FBF'
+            'Bm': '#4E5FBF',
+            '': '#171717'
         };
 
         // Divs para exibir teclas pressionadas, notas e acordes
@@ -188,13 +275,12 @@
                 }
             } else if (status === 128 || (status === 144 && velocity === 0)) {
                 // Nota liberada (status 128) ou nota com velocidade 0 (liberada)
-                const nota = notasMIDI[note];
-                if (nota) {
+                const nota = '';
                     delete teclasPressionadas[note];
                     exibirTeclasPressionadas();
-                }
             }
         }
+        
 
         // Função para lidar com o evento keydown
         function onKeyDown(event) {
@@ -208,7 +294,9 @@
         // Função para lidar com o evento keyup
         function onKeyUp(event) {
             // Remova a tecla do objeto quando ela é liberada
-            delete teclasPressionadas[event.key];
+            teclasPressionadas[event.key] = false;
+            // delete teclasPressionadas[event.key];
+
 
             // Atualize a exibição das teclas pressionadas e notas correspondentes
             exibirTeclasPressionadas();
@@ -217,15 +305,23 @@
         // Função para exibir teclas pressionadas, notas e acorde na tela
         function exibirTeclasPressionadas() {
             const teclasPressionadasArray = Object.keys(teclasPressionadas);
+            
             const notasPressionadasArray = teclasPressionadasArray.map(tecla => notasMIDI[tecla]);
-
+            // console.log(notasPressionadasArray);
             teclasPressionadasDiv.textContent = 'Teclas pressionadas: ' + teclasPressionadasArray.join(', ');
             let notasDiv = 'Notas pressionadas: ' + notasPressionadasArray.join(', ');
             notasPressionadasDiv.textContent = notasDiv.replace('sus', '#');
 
-            // Verifique se as notas pressionadas formam um acorde conhecido
-            const acorde = detectarAcorde(notasPressionadasArray);
-            acordeDiv.textContent = 'Acorde: ' + (acorde ? acorde : 'Nenhum acorde conhecido');
+// Verifique se as notas pressionadas formam um acorde conhecido
+let acorde = null;
+if (notasPressionadasArray.length > 0) {
+    acorde = detectarAcorde(notasPressionadasArray);
+}
+
+acordeDiv.textContent = 'Acorde: ' + (acorde !== null ? acorde : 'Nenhum conhecido');
+
+
+            console.log('notasPressionadasArray: ' + notasPressionadasArray);
 
     // Limpe todas as classes de estilo dos quadrados
     const quadrados = document.querySelectorAll('.quadrado');
@@ -247,7 +343,16 @@
 
 // Função para atualizar a cor de fundo do acorde e da página
 function atualizarCorAcorde(acorde) {
-    const corAcorde = coresAcorde[acorde] || '#171717';
+    let corAcorde;
+    if (acorde != null && acordes[acorde]) {
+        corAcorde = coresAcorde[acorde];
+        acordeDiv.textContent = `Acorde: ${acorde}`;
+    } else {
+        corAcorde = '#171717';
+        acordeDiv.textContent = 'Acorde: Nenhum conhecido';
+    }
+    console.log('acorde: ' + acorde);
+
     acordeDiv.style.backgroundColor = corAcorde;
     document.body.style.backgroundColor = corAcorde; // Define a cor de fundo da página
 }
