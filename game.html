@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm Game</title>
+    <title>VHS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap">
+    <link rel="icon" href="favicon2.svg" type="image/x-icon">
+
     <style>
+        /* Adicione seu estilo personalizado aqui se necessário */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -27,13 +33,115 @@
             font-size: 24px;
             margin-top: 20px;
         }
+        .quadrado.pressed {
+    background-color: #ffcc00; /* Defina a cor de fundo quando a tecla é pressionada */
+    box-shadow: 0 0 10px #ffcc00; /* Adicione uma sombra para destacar a tecla */
+}
     </style>
 </head>
+
 <body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="vhslogo3.png" alt="Logo">
+        </div>
+        <h1 class="titulo-site"><mark style="background-color:#1A7419; color:white;">V</mark>isual <mark
+                style="background-color:#CD5317; color:white;">H</mark>earing <mark
+                style="background-color:#6716CF; color:white;">S</mark>oftware</h1>
+    </div>
+    <div id="container">
+        <div id="teclas-pressionadas-container">
+            <div id="teclas-pressionadas">
+                <div id="teclas-pressionadas-texto"></div>
+                <div id="notas-pressionadas"></div>
+                <div id="acorde"></div>
+            </div>
+        </div>
+        <div class="note-space">
+            <div class="quadrados-container-1">
+                <div class="quadrado C">
+                    <div class="nota">C</div>
+                </div>
+                <div class="quadrado Csus">
+                    <div class="nota">C#</div>
+                </div>
+                <div class="quadrado D">
+                    <div class="nota">D</div>
+                </div>
+                <div class="quadrado Dsus">
+                    <div class="nota">D#</div>
+                </div>
+                <div class="quadrado E">
+                    <div class="nota">E</div>
+                </div>
+                <div class="quadrado F">
+                    <div class="nota">F</div>
+                </div>
+                <div class="quadrado Fsus">
+                    <div class="nota">F#</div>
+                </div>
+                <div class="quadrado G">
+                    <div class="nota">G</div>
+                </div>
+                <div class="quadrado Gsus">
+                    <div class="nota">G#</div>
+                </div>
+                <div class="quadrado A">
+                    <div class="nota">A</div>
+                </div>
+                <div class="quadrado Asus">
+                    <div class="nota">A#</div>
+                </div>
+                <div class="quadrado B">
+                    <div class="nota">B</div>
+                </div>
+            </div>
+            <div class="quadrados-container-2">
+                <div class="quadrado C">
+                    <div class="nota">C</div>
+                </div>
+                <div class="quadrado Csus">
+                    <div class="nota">C#</div>
+                </div>
+                <div class="quadrado D">
+                    <div class="nota">D</div>
+                </div>
+                <div class="quadrado Dsus">
+                    <div class="nota">D#</div>
+                </div>
+                <div class="quadrado E">
+                    <div class="nota">E</div>
+                </div>
+                <div class="quadrado F">
+                    <div class="nota">F</div>
+                </div>
+                <div class="quadrado Fsus">
+                    <div class="nota">F#</div>
+                </div>
+                <div class="quadrado G">
+                    <div class="nota">G</div>
+                </div>
+                <div class="quadrado Gsus">
+                    <div class="nota">G#</div>
+                </div>
+                <div class="quadrado A">
+                    <div class="nota">A</div>
+                </div>
+                <div class="quadrado Asus">
+                    <div class="nota">A#</div>
+                </div>
+                <div class="quadrado B">
+                    <div class="nota">B</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="chordDisplay"></div>
     <div id="score">Score: 0</div>
 
     <script>
+        // Adicione o código do jogo de ritmo aqui
         const chords = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
         let score = 0;
         let chordInterval;
@@ -41,6 +149,21 @@
 
         const chordDisplay = document.getElementById('chordDisplay');
         const scoreDisplay = document.getElementById('score');
+
+       // Função para inicializar a Web MIDI API
+       function initializeMIDI() {
+            navigator.requestMIDIAccess()
+                .then(midiAccess => {
+                    const inputs = midiAccess.inputs.values();
+                    for (let input = inputs.next(); input && !input.done; input = inputs.next()) {
+                        input.value.onmidimessage = onMIDIMessage;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error accessing MIDI devices:', error);
+                });
+        }
+
 
         function getRandomChord() {
             const randomIndex = Math.floor(Math.random() * chords.length);
@@ -55,35 +178,49 @@
             }, 1000);
         }
 
-        function checkKey(event) {
-            const pressedKey = event.key.toUpperCase();
-            if (pressedKey === currentChord) {
-                score++;
-            } else {
-                score--;
-            }
-            scoreDisplay.textContent = `Score: ${score}`;
+        function onMIDIMessage(event) {
+    const [status, note, velocity] = event.data;
+    const noteIndex = note % 12;
+    const notePlayed = chords[noteIndex];
+    const keyPressed = notasMIDI[note];
+    const keyElement = document.querySelector(`.quadrado.${keyPressed}`);
+
+    if (status === 144) {
+        // Quando uma nota é pressionada (status 144)
+        if (velocity > 0) {
+            keyElement.classList.add('pressed'); // Adiciona a classe 'pressed' para acender a tecla
+        } else {
+            keyElement.classList.remove('pressed'); // Remove a classe 'pressed' quando a nota é liberada
         }
+        
+        // Lógica do jogo (pontuação, etc.)
+        if (notePlayed === currentChord) {
+            score++;
+        } else {
+            score--;
+        }
+        scoreDisplay.textContent = `Score: ${score}`;
+    }
+}
 
         function startGame() {
             score = 0;
             scoreDisplay.textContent = 'Score: 0';
             chordInterval = setInterval(displayChord, 1500);
-            document.addEventListener('keydown', checkKey);
         }
+
 
         function endGame() {
             clearInterval(chordInterval);
             chordDisplay.textContent = 'Game Over';
-            document.removeEventListener('keydown', checkKey);
         }
 
-        startGame();
-
-        // You can call endGame() when the game is over, for example, after a certain time.
-        // setTimeout(() => {
-        //     endGame();
-        // }, 30000); // Game ends after 30 seconds
+        // Inicializar a MIDI e iniciar o jogo quando o documento estiver pronto
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMIDI();
+            startGame();
+        });
     </script>
 </body>
+
 </html>

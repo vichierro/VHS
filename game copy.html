@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>VHS</title>
+    <title>VHS Rhythm Game</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap">
     <link rel="icon" href="favicon2.svg" type="image/x-icon">
+    <style>
+        /* Adicione aqui seu estilo personalizado */
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -14,129 +17,95 @@
         <h1 class="titulo-site"><mark style="background-color:#1A7419; color:white;">V</mark>isual <mark style="background-color:#CD5317; color:white;">H</mark>earing <mark style="background-color:#6716CF; color:white;">S</mark>oftware</h1>
     </div>
     <div id="container">
-    <div id="teclas-pressionadas-container">
-        <div id="teclas-pressionadas">
-            <div id="teclas-pressionadas-texto"></div>
-            <div id="notas-pressionadas"></div>
-            <div id="acorde"></div>
+        <div id="teclas-pressionadas-container">
+            <div id="teclas-pressionadas">
+                <div id="teclas-pressionadas-texto"></div>
+                <div id="notas-pressionadas"></div>
+                <div id="acorde"></div>
+            </div>
+        </div>
+        <div class="note-space">
+            <div class="quadrados-container-1">
+                <div class="quadrado C">
+                    <div class="nota">C</div>
+                </div>
+                <div class="quadrado Csus">
+                    <div class="nota">C#</div>
+                </div>
+                <div class="quadrado D">
+                    <div class="nota">D</div>
+                </div>
+                <div class="quadrado Dsus">
+                    <div class="nota">D#</div>
+                </div>
+                <div class="quadrado E">
+                    <div class="nota">E</div>
+                </div>
+                <div class="quadrado F">
+                    <div class="nota">F</div>
+                </div>
+                <div class="quadrado Fsus">
+                    <div class="nota">F#</div>
+                </div>
+                <div class="quadrado G">
+                    <div class="nota">G</div>
+                </div>
+                <div class="quadrado Gsus">
+                    <div class="nota">G#</div>
+                </div>
+                <div class="quadrado A">
+                    <div class="nota">A</div>
+                </div>
+                <div class="quadrado Asus">
+                    <div class="nota">A#</div>
+                </div>
+                <div class="quadrado B">
+                    <div class="nota">B</div>
+                </div>
+            </div>
+            <div class="quadrados-container-2">
+                <div class="quadrado C">
+                    <div class="nota">C</div>
+                </div>
+                <div class="quadrado Csus">
+                    <div class="nota">C#</div>
+                </div>
+                <div class="quadrado D">
+                    <div class="nota">D</div>
+                </div>
+                <div class="quadrado Dsus">
+                    <div class="nota">D#</div>
+                </div>
+                <div class="quadrado E">
+                    <div class="nota">E</div>
+                </div>
+                <div class="quadrado F">
+                    <div class="nota">F</div>
+                </div>
+                <div class="quadrado Fsus">
+                    <div class="nota">F#</div>
+                </div>
+                <div class="quadrado G">
+                    <div class="nota">G</div>
+                </div>
+                <div class="quadrado Gsus">
+                    <div class="nota">G#</div>
+                </div>
+                <div class="quadrado A">
+                    <div class="nota">A</div>
+                </div>
+                <div class="quadrado Asus">
+                    <div class="nota">A#</div>
+                </div>
+                <div class="quadrado B">
+                    <div class="nota">B</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="note-space">
-    <div class="quadrados-container-1">
-        <div class="quadrado C">
-            <div class="nota">C</div>
-        </div>
-        <div class="quadrado Csus">
-            <div class="nota">C#</div>
-        </div>
-        <div class="quadrado D">
-            <div class="nota">D</div>
-        </div>
-        <div class="quadrado Dsus">
-            <div class="nota">D#</div>
-        </div>
-        <div class="quadrado E">
-            <div class="nota">E</div>
-        </div>
-        <div class="quadrado F">
-            <div class="nota">F</div>
-        </div>
-        <div class="quadrado Fsus">
-            <div class="nota">F#</div>
-        </div>
-        <div class="quadrado G">
-            <div class="nota">G</div>
-        </div>
-        <div class="quadrado Gsus">
-            <div class="nota">G#</div>
-        </div>
-        <div class="quadrado A">
-            <div class="nota">A</div>
-        </div>
-        <div class="quadrado Asus">
-            <div class="nota">A#</div>
-        </div>
-        <div class="quadrado B">
-            <div class="nota">B</div>
-        </div>
-    </div>
-    <div class="quadrados-container-2">
-        <div class="quadrado C">
-            <div class="nota">C</div>
-        </div>
-        <div class="quadrado Csus">
-            <div class="nota">C#</div>
-        </div>
-        <div class="quadrado D">
-            <div class="nota">D</div>
-        </div>
-        <div class="quadrado Dsus">
-            <div class="nota">D#</div>
-        </div>
-        <div class="quadrado E">
-            <div class="nota">E</div>
-        </div>
-        <div class="quadrado F">
-            <div class="nota">F</div>
-        </div>
-        <div class="quadrado Fsus">
-            <div class="nota">F#</div>
-        </div>
-        <div class="quadrado G">
-            <div class="nota">G</div>
-        </div>
-        <div class="quadrado Gsus">
-            <div class="nota">G#</div>
-        </div>
-        <div class="quadrado A">
-            <div class="nota">A</div>
-        </div>
-        <div class="quadrado Asus">
-            <div class="nota">A#</div>
-        </div>
-        <div class="quadrado B">
-            <div class="nota">B</div>
-        </div>
-    </div>
-    <div class="quadrados-container-3">
-        <div class="quadrado C">
-            <div class="nota">C</div>
-        </div>
-        <div class="quadrado Csus">
-            <div class="nota">C#</div>
-        </div>
-        <div class="quadrado D">
-            <div class="nota">D</div>
-        </div>
-        <div class="quadrado Dsus">
-            <div class="nota">D#</div>
-        </div>
-        <div class="quadrado E">
-            <div class="nota">E</div>
-        </div>
-        <div class="quadrado F">
-            <div class="nota">F</div>
-        </div>
-        <div class="quadrado Fsus">
-            <div class="nota">F#</div>
-        </div>
-        <div class="quadrado G">
-            <div class="nota">G</div>
-        </div>
-        <div class="quadrado Gsus">
-            <div class="nota">G#</div>
-        </div>
-        <div class="quadrado A">
-            <div class="nota">A</div>
-        </div>
-        <div class="quadrado Asus">
-            <div class="nota">A#</div>
-        </div>
-        <div class="quadrado B">
-            <div class="nota">B</div>
-        </div>
-</div>
-</div>
+    <div id="chordDisplay"></div>
+    <div id="score">Score: 0</div>
+
     <script>
         // Objeto para rastrear o estado das teclas
         const teclasPressionadas = {};
@@ -168,54 +137,30 @@
 
         // Mapeamento de acordes
         const acordes = {
-    'C': ['C', 'E', 'G'],
+    'C': 'C',
     'Cm': ['C', 'Dsus', 'G'],
     'C#': ['Csus', 'F', 'Gsus'],
     'C#m': ['Csus', 'E', 'Gsus'],
-    'D': ['D', 'Fsus', 'A'],
+    'D': 'D',
     'Dm': ['D', 'F', 'A'],
     'D#': ['Dsus', 'G', 'Asus'],
     'D#m': ['Dsus', 'Fsus', 'Asus'],
-    'E': ['E', 'Gsus', 'B'],
+    'E': 'E',
     'Em': ['E', 'G', 'B'],
-    'F': ['F', 'A', 'C'],
+    'F': 'F',
     'Fm': ['F', 'Gsus', 'C'],
     'F#': ['Fsus', 'Asus', 'Csus'],
     'F#m': ['Fsus', 'Gs', 'Csus'],
-    'G': ['G', 'B', 'D'],
+    'G': 'G',
     'Gm': ['G', 'Asus', 'D'],
     'G#': ['Gsus', 'C', 'Dsus'],
     'G#m': ['Gsus', 'B', 'Dsus'],
-    'A': ['A', 'Csus', 'E'],
+    'A': 'A',
     'Am': ['A', 'C', 'E'],
     'A#': ['Asus', 'D', 'F'],
     'A#m': ['Asus', 'Csus', 'F'],
-    'B': ['B', 'Dsus', 'Fsus'],
+    'B': 'B',
     'Bm': ['B', 'D', 'Fsus'],
-    'C7': ['C', 'E', 'G', 'Asus'],
-    'Cm7': ['C', 'Dsus', 'G', 'Asus'],
-    'C#7': ['Csus', 'F', 'Gsus', 'B'],
-    'C#m7': ['Csus', 'E', 'Gsus', 'B'],
-    'D7': ['D', 'Fsus', 'A', 'C'],
-    'Dm7': ['D', 'F', 'A', 'C'],
-    'D#7': ['Dsus', 'G', 'Asus', 'Csus'],
-    'D#m7': ['Dsus', 'Fsus', 'Asus', 'Csus'],
-    'E7': ['E', 'Gsus', 'B', 'D'],
-    'Em7': ['E', 'G', 'B', 'D'],
-    'F7': ['F', 'A', 'C', 'Dsus'],
-    'Fm7': ['F', 'Gsus', 'C', 'Dsus'],
-    'F#7': ['Fsus', 'Asus', 'Csus', 'E'],
-    'F#m7': ['Fsus', 'Gs', 'Csus', 'E'],
-    'G7': ['G', 'B', 'D', 'F'],
-    'Gm7': ['G', 'Asus', 'D', 'F'],
-    'G#7': ['Gsus', 'C', 'Dsus', 'Fsus'],
-    'G#m7': ['Gsus', 'B', 'Dsus', 'Fsus'],
-    'A7': ['A', 'Csus', 'E', 'G'],
-    'Am7': ['A', 'C', 'E', 'G'],
-    'A#7': ['Asus', 'D', 'F', 'Gsus'],
-    'A#m7': ['Asus', 'Csus', 'F', 'Gsus'],
-    'B7': ['B', 'Dsus', 'Fsus', 'A'],
-    'Bm7': ['B', 'D', 'Fsus', 'A'],
     '': ['']
 };
 
@@ -288,59 +233,34 @@
         };
 
 
-            // Mapeamento de cores para acordes
-            const coresAcorde = {
-                'C': '#699ECB',
-                'Cm': '#436B74',
-                'C#': '#6FCCCF',
-                'C#m': '#43746A',
-                'D': '#32BD8A',
-                'Dm': '#739227',
-                'D#': '#35BD32',
-                'D#m': '#909227',
-                'E': '#6AF100',
-                'Em': '#A6BB7E',
-                'F': '#C6AC65',
-                'Fm': '#BF806E',
-                'F#': '#C69C65',
-                'F#m': '#9B5E5C',
-                'G': '#F96B25',
-                'Gm': '#E45199',
-                'G#': '#FF8585',
-                'G#m': '#EF78B2',
-                'A': '#CD29D5',
-                'Am': '#A373D0',
-                'A#': '#B329D5',
-                'A#m': '#8B73D0',
-                'B': '#8D37FA',
-                'Bm': '#4E5FBF',
-                'C7': '#4D6F8E',
-                'Cm7': '#2D4D56',
-                'C#7': '#739A9E',
-                'C#m7': '#2D564D',
-                'D7': '#24875F',
-                'Dm7': '#546E1F',
-                'D#7': '#24874C',
-                'D#m7': '#6D6E1F',
-                'E7': '#4E9900',
-                'Em7': '#7E8D55',
-                'F7': '#917B47',
-                'Fm7': '#8A6259',
-                'F#7': '#917B47',
-                'F#m7': '#693730',
-                'G7': '#C94A1A',
-                'Gm7': '#B72E6C',
-                'G#7': '#D97878',
-                'G#m7': '#C56694',
-                'A7': '#A31A9A',
-                'Am7': '#844FA1',
-                'A#7': '#8C1A9A',
-                'A#m7': '#672E94',
-                'B7': '#6D2ADA',
-                'Bm7': '#38446B',
-
-                '': '#171717'
-            };
+        // Mapeamento de cores para acordes
+        const coresAcorde = {
+            'C': '#699ECB',
+            'Cm': '#436B74',
+            'C#': '#6FCCCF',
+            'C#m': '#43746A',
+            'D': '#32BD8A',
+            'Dm': '#739227',
+            'D#': '#35BD32',
+            'D#m': '#909227',
+            'E': '#6AF100',
+            'Em': '#A6BB7E',
+            'F': '#C6AC65',
+            'Fm': '#BF806E',
+            'F#': '#C69C65',
+            'F#m': '#9B5E5C',
+            'G': '#F96B25',
+            'Gm': '#E45199',
+            'G#': '#FF8585',
+            'G#m': '#EF78B2',
+            'A': '#CD29D5',
+            'Am': '#A373D0',
+            'A#': '#B329D5',
+            'A#m': '#8B73D0',
+            'B': '#8D37FA',
+            'Bm': '#4E5FBF',
+            '': '#171717'
+        };
 
         // Divs para exibir teclas pressionadas, notas e acordes
         const teclasPressionadasDiv = document.getElementById('teclas-pressionadas-texto');
@@ -377,17 +297,25 @@
             exibirTeclasPressionadas();
         }
 
-        // Função para lidar com o evento keyup
-        function onKeyUp(event) {
-            // Remova a tecla do objeto quando ela é liberada
-            teclasPressionadas[event.key] = false;
-            // delete teclasPressionadas[event.key];
+    // Função para lidar com o evento keyup
+function onKeyUp(event) {
+    // Remova a tecla do objeto quando ela é liberada
+    teclasPressionadas[event.key] = false;
 
+    // Atualize a exibição das teclas pressionadas e notas correspondentes
+    exibirTeclasPressionadas();
 
-            // Atualize a exibição das teclas pressionadas e notas correspondentes
-            exibirTeclasPressionadas();
-        }
+    // Verifica se as notas pressionadas correspondem ao acorde que o jogo pediu
+    const acordeTocado = detectarAcorde(notasPressionadasArray);
 
+    // Se o acorde tocado coincide com o acorde que o jogo pediu, aumenta a pontuação
+    if (acordeTocado && acordeTocado === currentChord) {
+        score++;
+    }
+
+    // Atualiza a pontuação exibida na tela
+    scoreDisplay.textContent = `Score: ${score}`;
+}
         // Função para exibir teclas pressionadas, notas e acorde na tela
         function exibirTeclasPressionadas() {
             const teclasPressionadasArray = Object.keys(teclasPressionadas);
@@ -470,6 +398,56 @@ function atualizarCorAcorde(acorde) {
         } else {
             console.error('Web MIDI API não suportada neste navegador.');
         }
+
+        let score = 0;
+let chordInterval;
+let currentChord;
+
+const chordDisplay = document.getElementById('chordDisplay');
+const scoreDisplay = document.getElementById('score');
+
+function getRandomChord() {
+    const chords = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+    const randomIndex = Math.floor(Math.random() * chords.length);
+    return chords[randomIndex];
+}
+
+function displayChord() {
+    currentChord = getRandomChord();
+    chordDisplay.textContent = `Toque um acorde de ${currentChord}`;
+    setTimeout(() => {
+        chordDisplay.textContent = '';
+    }, 5000);
+}
+
+function checkKey(event) {
+    // Verifica se as notas pressionadas correspondem às notas sorteadas pelo jogo
+    const notasPressionadasOrdenadas = notasPressionadasArray.slice().sort().join('');
+    const notasSorteadasOrdenadas = currentChord.split('').sort().join('');
+
+    if (notasPressionadasOrdenadas === notasSorteadasOrdenadas) {
+        score++;
+    }
+
+    // Atualiza a pontuação exibida na tela
+    scoreDisplay.textContent = `Score: ${score}`;
+}
+
+
+function startGame() {
+    score = 0;
+    scoreDisplay.textContent = 'Score: 0';
+    chordInterval = setInterval(displayChord, 1500);
+    document.addEventListener('keydown', checkKey);
+}
+
+function endGame() {
+    clearInterval(chordInterval);
+    chordDisplay.textContent = 'Game Over';
+    document.removeEventListener('keydown', checkKey);
+}
+
+startGame();
 
     </script>
 </body>

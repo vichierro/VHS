@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIDI Key Press</title>
+</head>
+<body>
+
+  <p>Pressione uma tecla no teclado MIDI...</p>
+
+  <script>
+    // Verifica se o navegador suporta Web MIDI API
+    if (navigator.requestMIDIAccess) {
+      navigator.requestMIDIAccess()
+        .then(onMIDISuccess, onMIDIFailure);
+    } else {
+      alert("Seu navegador não suporta a API Web MIDI.");
+    }
+
+    // Manipula o sucesso na obtenção de acesso ao MIDI
+    function onMIDISuccess(midiAccess) {
+      // Obtém a primeira entrada MIDI disponível
+      const input = midiAccess.inputs.values().next().value;
+
+      // Adiciona um ouvinte de evento para teclas pressionadas
+      input.onmidimessage = function(event) {
+        // O código da tecla MIDI está em event.data[1]
+        const midiKey = event.data[1];
+
+        // Atualiza o conteúdo da página com a tecla MIDI pressionada
+        document.querySelector('p').textContent = `Tecla MIDI pressionada: ${midiKey}`;
+      };
+    }
+
+    // Manipula falha ao obter acesso ao MIDI
+    function onMIDIFailure() {
+      alert("Falha ao obter acesso ao dispositivo MIDI.");
+    }
+  </script>
+
+</body>
+</html>

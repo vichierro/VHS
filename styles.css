@@ -116,7 +116,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    opacity: 0.8; /* Defina uma opacidade padrão */
+    opacity: 1; /* Defina uma opacidade padrão */
     transition: opacity 0.2s ease-in-out; /* Adicione uma transição suave para a mudança de opacidade */
     margin-bottom: 10px; /* Espaçamento entre as divs */
 }
@@ -124,7 +124,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    opacity: 1; /* Defina uma opacidade padrão */
+    opacity: 0.8; /* Defina uma opacidade padrão */
+    transition: opacity 0.2s ease-in-out; /* Adicione uma transição suave para a mudança de opacidade */
+    margin-bottom: 10px; /* Espaçamento entre as divs */
+}
+
+.quadrados-container-3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 0.6; /* Defina uma opacidade padrão */
     transition: opacity 0.2s ease-in-out; /* Adicione uma transição suave para a mudança de opacidade */
     margin-bottom: 10px; /* Espaçamento entre as divs */
 }
