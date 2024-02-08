@@ -56,8 +56,8 @@ body {
     opacity: 0.95;
     padding: 20px;
     align-items: center;
-    width: 80%; /* Ocupa 100% da largura da tela */
-    height: 60.5vh; /* Ocupa 100% da altura da tela */
+    width: 90%; /* Ocupa 100% da largura da tela */
+    height: 70.5vh; /* Ocupa 100% da altura da tela */
     border-radius: 30px;
     justify-content: center;
     display: flex;
