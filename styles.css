@@ -92,8 +92,8 @@ body {
 }
 
 .quadrado {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin-right: 2px;
     display: flex;
     flex-direction: column;
@@ -142,7 +142,7 @@ body {
 
 
 .nota {
-    font-size: 30px;
+    font-size: 35px;
     margin-top: 5px;
 }
 
@@ -176,28 +176,28 @@ body {
 
 .Csus {
     background-color: #6FCCCF;
-    border-left: 10px solid white;
-    width: 50px;
+    border-left: 12px solid white;
+    width: 58px;
 }
 .Dsus {
     background-color: #35BD32;
-    border-left: 10px solid white;
-    width: 50px;
+    border-left: 12px solid white;
+    width: 58px;
 }
 .Fsus {
     background-color: #C69C65;
-    border-left: 10px solid white;
-    width: 50px;
+    border-left: 12px solid white;
+    width: 58px;
 }
 .Gsus {
     background-color: #FF8585;
-    border-left: 10px solid white;
-    width: 50px;
+    border-left: 12px solid white;
+    width: 58px;
 }
 .Asus {
     background-color: #B329D5;
-    border-left: 10px solid white;
-    width: 50px;
+    border-left: 12px solid white;
+    width: 58px;
 }
 
 
